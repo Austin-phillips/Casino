@@ -1,4 +1,5 @@
 require_relative 'card'
+require 'colorize'
 
 class Deck
  # Getter and Setter methods for rank, suit and color
@@ -14,14 +15,14 @@ class Deck
  end
 
  def shuffle_cards
-  @cards.shuffle
+  @cards.shuffle!
  end
 
  def generate_deck
    @suits.each do |suit|
      @ranks.size.times do |i|
        # Ternary Operator
-       color = (suit == 'Spades' || suit == 'Clubs') ? 'Black' : 'Red'
+       color = (suit == 'Spades' || suit == 'Clubs') ? 'Black' : 'Red'.red
        @cards << Card.new(@ranks[i], suit, color)
      end
    end
@@ -29,7 +30,8 @@ class Deck
 end
 
 
-# Instantiate a new deck
-# d = Deck.new
-# Get all the cards in the deck
-# puts d.cards
+d = Deck.new
+d.shuffle_cards
+d.cards.each do |card|
+ puts "#{card.color} #{card.rank} of #{card.suit}'s"
+end
