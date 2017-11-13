@@ -22,3 +22,5 @@ class Dice
    num = @die1 + @die2
  end
 end
+
+d = Dice.new
