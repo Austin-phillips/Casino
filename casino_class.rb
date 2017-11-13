@@ -2,12 +2,14 @@
 
 require 'pry'
 require 'colorize'
+require_relative 'Player'
 
 class Casino
+  attr_accessor
+
   def initialize 
     puts "Welcome to the ruby casino"
-    puts "What is your name player?"
-    name = gets.strip
+    @player = Player.new
   end
 end
 
