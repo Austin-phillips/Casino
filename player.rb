@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-
-=======
 require 'pry'
->>>>>>> fix conflicts
 require_relative 'wallet'
 
 class Player
   MIN_AGE = 21
-
   attr_accessor :name, :age, :wallet
 
   def initialize
@@ -31,3 +26,4 @@ class Player
   end
 
 end
+
