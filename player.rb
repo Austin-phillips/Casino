@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 require_relative 'wallet'
 
 class Player
+=======
+class Player
+  MIN_AGE = 21
+>>>>>>> player wallet
   attr_accessor :name, :age, :wallet
 
   def initialize
@@ -9,6 +14,7 @@ class Player
     puts "What is your age?"
     @age = gets.to_i
     age_verification
+
     puts "How much money are you playing with?"
     amount = gets.to_f
     @wallet = Wallet.new(amount)
