@@ -1,13 +1,11 @@
 require 'pry'
-require 'colorized'
+require 'colorize'
 
 require_relative 'Dice'
 require_relative 'Player'
 
 class HighLow
-  attr_accessor :player, :casino
-
-  def initialize (player)
+ def initialize(player)
     puts "__________________________________________________".colorize(:color => :light_blue, :background => :red)
     puts " _   _ ___ ____ _   _       _     _____        __".colorize(:green)
     puts "| | | |_ _/ ___| | | |     | |   / _ \\ \\      / /".colorize(:green)
@@ -15,12 +13,12 @@ class HighLow
     puts "|  _  || | |_| |  _  |_____| |__| |_| |\\ V  V /  ".colorize(:green)
     puts "|_| |_|___\\____|_| |_|     |_____\\___/  \\_/\\_/   ".colorize(:green)
     puts "__________________________________________________".colorize(:color => :light_blue, :background => :red)
-    puts "Welcome to High/Low! : #{player.name}".
+    puts "Welcome to High/Low! : #{player.name}"
     puts "You have #{player.wallet.amount} to bet with!"
 
     d = Dice.new
     d.show_sum
-    num1 = sum_of_dice
+    num1 = d.sum_of_dice
 
     puts "How much would you like to bet?"
     bet = gets.strip.to_f
@@ -28,13 +26,17 @@ class HighLow
 
     puts "Will the next roll be higher or lower?"
     choice = gets.strip.downcase
-    when "Higher"
-      higher = ( num1, bet, player )
     
-    when "Lower"
-      lower = ( num1, bet, player )
-      else
-      puts "I'm sorry, I couldn't hear you."
+    case choice
+      when "higher"
+        higher(num1, bet, player)
+      
+      when "lower"
+        lower(num1, bet, player)
+        else
+        puts "I'm sorry, I couldn't hear you."
+    end      
+  end 
 
   def higher(first_roll, bet, player)
     d2 = Dice.new
@@ -75,12 +77,10 @@ class HighLow
     puts '2) Main Menu'
     case gets.strip.to_i
       when 1
-        BlackJack.new(player)
+       HighLow.new(player)
       when 2
-        RandomAct.new(player)
+        Casino.new(@player, self)
     end
   end
 end
 
-player = Player.new
-HighLow.new(player)

@@ -1,5 +1,5 @@
 require 'pry'
-require 'colorized'
+require 'colorize'
 
 class Dice
   attr_accessor :die1, :die2
@@ -26,4 +26,3 @@ class Dice
  end
 end
 
-d = Dice.new

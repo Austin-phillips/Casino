@@ -3,28 +3,27 @@
 require 'pry'
 require_relative 'player'
 require_relative 'wallet'
-require_relative 'HighLow'
+require_relative 'high_low'
 require 'colorize'
-require_relative 'Player'
 
 class Casino
 
-  @options = ["High / Low", "Blackjack", "Exit"]
-  attr_accessor player:
+  attr_accessor :player, :options
 
   def initialize
+  @options = ["HighLow", "Blackjack", "Exit"]
     puts "Welcome to the ruby casino"
-    @player = player.new
+    @player = Player.new
    menu
 
   end
 
   def menu
     @options.each_with_index {|opt, i| puts "#{i + 1}) #{opt}" }
-    choice = gits.to_i - 1
+    choice = gets.to_i - 1
     case choice
       when 0
-        HighLow.new(@player, self)
+        HighLow.new(@player)
       when 1
         Blackjack.new(@player, self)
       when 2
@@ -37,3 +36,5 @@ class Casino
 end
 
 end
+
+Casino.new
