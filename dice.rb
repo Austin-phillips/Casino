@@ -1,3 +1,6 @@
+require 'pry'
+require 'colorized'
+
 class Dice
   attr_accessor :die1, :die2
 

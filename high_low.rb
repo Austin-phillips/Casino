@@ -1,5 +1,8 @@
 require 'pry'
+require 'colorized'
+
 require_relative 'Dice'
+require_relative 'Player'
 
 class HighLow
   attr_accessor :player, :casino
@@ -26,10 +29,10 @@ class HighLow
     puts "Will the next roll be higher or lower?"
     choice = gets.strip.downcase
     when "Higher"
-      higher = (num1, bet, player)
+      higher = ( num1, bet, player )
     
     when "Lower"
-      lower = (num1, bet, player)
+      lower = ( num1, bet, player )
       else
       puts "I'm sorry, I couldn't hear you."
 
@@ -44,8 +47,8 @@ class HighLow
       puts "You won #{winnings}".colorize(:green)
       puts "Your wallet now has #{player.wallet.amount}".colorize(:green)
     else
-      puts 'That sucks. Gimme my money!'.colorize(:red)
-      puts "Your walled now has #{player.wallet.amount}".colorize(:red)
+      puts 'Apologises, but I do believe you owe me money.'.colorize(:red)
+      puts "Your wallet now has #{player.wallet.amount}".colorize(:red)
     end
     sub_menu(player)
 
@@ -62,14 +65,14 @@ class HighLow
       puts "You won #{winnings}".colorize(:green)
       puts "Your wallet now has #{player.wallet.amount}".colorize(:green)
     else
-      puts 'That sucks. Gimme my money!'.colorize(:red)
+      puts 'Apologises, but I do believe you owe me money.'.colorize(:red)
     end
     sub_menu(player)
   end
   
   def sub_menu(player)
-    p '1) GO AGAIN!'
-    p '2) Main Menu'
+    puts '1) GO AGAIN!'
+    puts '2) Main Menu'
     case gets.strip.to_i
       when 1
         BlackJack.new(player)
@@ -78,3 +81,6 @@ class HighLow
     end
   end
 end
+
+player = Player.new
+HighLow.new(player)

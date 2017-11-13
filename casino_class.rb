@@ -3,7 +3,7 @@
 require 'pry'
 require_relative 'player'
 require_relative 'wallet'
-require_relative 'High / Low'
+require_relative 'HighLow'
 require 'colorize'
 require_relative 'Player'
 
@@ -36,4 +36,4 @@ class Casino
   end
 end
 
-Casino
+end
