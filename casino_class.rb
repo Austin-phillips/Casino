@@ -1,14 +1,9 @@
 # Game ideas: Wheel of Fortune, Slot Machine, Hi/low,
 
 require 'pry'
-
-
 require_relative 'player'
 require_relative 'wallet'
 require_relative 'High / Low'
-
->>>>>>> -
-
 require 'colorize'
 require_relative 'Player'
 
@@ -21,7 +16,7 @@ class Casino
     puts "Welcome to the ruby casino"
     @player = player.new
    menu
->>>>>>> -
+
   end
 
   def menu
@@ -36,6 +31,7 @@ class Casino
       else
         puts "Invalid Choice"
         menu
+  end
 end
 
-Casino.new
+Casino
