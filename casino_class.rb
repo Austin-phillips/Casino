@@ -1,6 +1,7 @@
 # Game ideas: Wheel of Fortune, Slot Machine, Hi/low,
 
 require 'pry'
+require 'colorize'
 
 class Casino
   def initialize 
