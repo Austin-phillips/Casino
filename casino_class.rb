@@ -9,10 +9,10 @@ require_relative 'Player'
 
 class Casino
 
-  @options = ["High / Low", "Exit"]
+  @options = ["High / Low", "Blackjack", "Exit"]
   attr_accessor player:
 
-  def initialize 
+  def initialize
     puts "Welcome to the ruby casino"
     @player = player.new
    menu
@@ -26,6 +26,8 @@ class Casino
       when 0
         HighLow.new(@player, self)
       when 1
+        Blackjack.new(@player, self)
+      when 2
         puts "Come again!"
         Exit
       else

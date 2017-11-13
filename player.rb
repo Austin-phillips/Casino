@@ -1,11 +1,9 @@
-<<<<<<< HEAD
+
 require_relative 'wallet'
 
 class Player
-=======
-class Player
   MIN_AGE = 21
->>>>>>> player wallet
+
   attr_accessor :name, :age, :wallet
 
   def initialize
@@ -28,5 +26,3 @@ class Player
   end
 
 end
-
-Player.new

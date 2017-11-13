@@ -27,11 +27,19 @@ class Deck
      end
    end
  end
+
+
 end
 
 
-d = Deck.new
-d.shuffle_cards
-d.cards.each do |card|
- puts "#{card.color} #{card.rank} of #{card.suit}'s"
-end
+# d = Deck.new
+# d.shuffle_cards
+# d.cards.each do |card|
+#   # binding.pry
+#   if card.suit.include?('Diamonds') || card.suit.include?('Hearts')
+#     puts card.name.red
+#   else
+#     puts card.name
+#   end
+#
+# end
