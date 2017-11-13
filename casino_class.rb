@@ -1,5 +1,3 @@
-# Game ideas: Wheel of Fortune, Slot Machine, Hi/low,
-
 require 'pry'
 require_relative 'player'
 require_relative 'wallet'
@@ -11,8 +9,7 @@ class Casino
   attr_accessor :player, :options
 
   def initialize
-  @options = ["HighLow", "Blackjack", "Exit"]
-    puts "Welcome to the ruby casino"
+    @options = ["HighLow", "Blackjack", "Exit"]
     @player = Player.new
    menu
 
@@ -27,8 +24,8 @@ class Casino
       when 1
         Blackjack.new(@player, self)
       when 2
-        puts "Come again!"
-        Exit
+        puts "Thanks for playing with us, Come again."
+        exit
       else
         puts "Invalid Choice"
         menu

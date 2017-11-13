@@ -7,6 +7,7 @@ class Player
   attr_accessor :name, :age, :wallet
 
   def initialize
+    puts "Welcome to the DevCalibur Casino"
     puts "What is your name?"
     @name = gets.strip
     puts "What is your age?"
