@@ -38,6 +38,7 @@ class HighLow
     end      
   end 
 
+<<<<<<< HEAD
   def higher(first_roll, bet, player)
     d2 = Dice.new
     d2.show_sum
@@ -84,3 +85,11 @@ class HighLow
   end
 end
 
+=======
+  def initialize (player)
+    @player = player
+    puts "Do you want to play High Low: #{player.name}"
+      Casino.menu
+  end
+end
+>>>>>>> fix conflicts

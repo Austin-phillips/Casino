@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+require 'pry'
+>>>>>>> fix conflicts
 require_relative 'wallet'
 
 class Player
@@ -10,10 +14,10 @@ class Player
     puts "Welcome to the DevCalibur Casino"
     puts "What is your name?"
     @name = gets.strip
+    @name = name
     puts "What is your age?"
     @age = gets.to_i
     age_verification
-
     puts "How much money are you playing with?"
     amount = gets.to_f
     @wallet = Wallet.new(amount)
