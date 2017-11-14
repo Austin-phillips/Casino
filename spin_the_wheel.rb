@@ -12,7 +12,7 @@ class WheelFortune
     puts "Welcome to Spin The Wheel: #{player.name}!" .cyan
     puts "Current balance: $#{@player.wallet.amount}"
     puts "$10 to Play" .green
-    puts "1) Begin Wheel of fortune" .cyan
+    puts "1) Begin Spin the Wheel" .cyan
     puts "2) Exit back to casino" .red
     option
   end
