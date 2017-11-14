@@ -22,7 +22,7 @@ class Casino
     choice = gets.to_i - 1
     case choice
       when 0
-        HighLow.new(@player)
+        HighLow.new(@player, self)
       when 1
         Blackjack.new(@player, self)
       when 2

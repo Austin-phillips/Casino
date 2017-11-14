@@ -4,7 +4,8 @@ require_relative 'Dice'
 require_relative 'Player'
 
 class HighLow
- def initialize(player)
+ def initialize(player, casino)
+    @casino = casino
     puts "__________________________________________________".colorize(:color => :light_blue, :background => :red)
     puts " _   _ ___ ____ _   _       _     _____        __".colorize(:green)
     puts "| | | |_ _/ ___| | | |     | |   / _ \\ \\      / /".colorize(:green)
@@ -78,7 +79,7 @@ class HighLow
       when 1
        HighLow.new(player)
       when 2
-        Casino.new(@player, self)
+        @casino.menu
     end
   end
 end
