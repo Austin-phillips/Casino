@@ -6,13 +6,13 @@ class Player
   attr_accessor :name, :age, :wallet
 
   def initialize
-    puts "What is your name?".yellow
+    puts "What is your name?" .cyan
     @name = gets.strip
     @name = name
-    puts "What is your age?".light_green
+    puts "What is your age?" .cyan
     @age = gets.to_i
     age_verification
-    puts "How much money are you playing with?".light_red
+    puts "How much money are you playing with?" .green
     amount = gets.to_f
     @wallet = Wallet.new(amount)
   end

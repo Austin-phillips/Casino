@@ -11,21 +11,21 @@ class Casino
     attr_accessor :player, :options
 
     def initialize
-        @options = ["HighLow", "Blackjack","Spin The Wheel", "Slots", "Cashout"]
+        @options = ["HighLow" .green, "Blackjack" .yellow,"Spin The Wheel" .blue, "Slots" .cyan, "Cashout" .red]
 
         puts "===============================================".yellow
         puts "|      ~                                 ~    |".yellow
         puts "|       Welcome to the DevCalibur Casino      |".light_blue
         puts "|      ~                                 ~    |".yellow
         puts "===============================================".yellow
-        puts `say Welcome to DevCalibur casino`
+        puts `say Welcome to DevCalibur casino` .cyan
         @player = Player.new
 
         menu
     end
 
     def menu
-        puts "Which game would you like to play?"
+        puts "Which game would you like to play?" .cyan
         @options.each_with_index {|opt, i| puts "#{i + 1}) #{opt}" }
         choice = gets.to_i - 1
         case choice
