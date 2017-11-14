@@ -13,8 +13,7 @@ class Casino
     def initialize
         @options = ["HighLow", "Blackjack","Spin The Wheel", "Slots", "Exit"]
         @player = Player.new
-  attr_accessor :player, :options
-    
+        menu
     end
 
     def menu
