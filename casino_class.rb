@@ -34,7 +34,7 @@ class Casino
             when 1
             Blackjack.new(@player, self)
             when 2
-            WheelFortune.new(player, self)
+            WheelFortune.new(@player, self)
             when 3
             Slots.new(@player, self)
             when 4
