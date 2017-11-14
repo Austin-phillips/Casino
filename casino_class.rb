@@ -36,7 +36,7 @@ class Casino
             when 2
             WheelFortune.new(@player, self)
             when 3
-            Slots.new(@player, self)
+            Slots.new(@player, self).slots_play
             when 4
             puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}"
             puts `say Goodbye`
