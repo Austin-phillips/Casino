@@ -11,21 +11,21 @@ class Casino
     attr_accessor :player, :options
 
     def initialize
-        @options = ["HighLow" .green, "Blackjack" .yellow,"Spin The Wheel" .blue, "Slots" .cyan, "Cashout" .red]
+        @options = ["HighLow", "Blackjack","Spin The Wheel", "Slots", "Cashout"]
 
         puts "===============================================".yellow
         puts "|      ~                                 ~    |".yellow
         puts "|       Welcome to the DevCalibur Casino      |".light_blue
         puts "|      ~                                 ~    |".yellow
         puts "===============================================".yellow
-        puts `say Welcome to DevCalibur casino` .cyan
+        puts `say Welcome to DevCalibur casino`
         @player = Player.new
 
         menu
     end
 
     def menu
-        puts "Which game would you like to play?" .cyan
+        puts "Which game would you like to play?"
         @options.each_with_index {|opt, i| puts "#{i + 1}) #{opt}" }
         choice = gets.to_i - 1
         case choice
@@ -38,7 +38,7 @@ class Casino
             when 3
             Slots.new(@player, self)
             when 4
-            puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}" .cyan
+            puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}"
             exit
             else
             puts "Invalid Choice"

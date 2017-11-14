@@ -22,7 +22,7 @@ class Blackjack
 
   def greet
     puts "=========================================".yellow
-    puts "|   welcome to blackjack #{@player.name.ljust(15)}|".yellow
+    puts "|   welcome to blackjack #{@player.name.ljust(15)}|".yellow.on_blue
     puts "=========================================".yellow
     init_deck
     min_max
@@ -59,8 +59,13 @@ class Blackjack
     puts "How much would you like to bet?   Min: #{@min.to_s.light_blue}   Max: #{@max.to_s.red}"
     bet = gets.to_i
     if (@min..@max).include?(bet)
-      @bet = bet
-      start
+      if @bet > @player.waller.amount
+        puts "Come back wen you have some real cash!"
+        min_max
+      else
+        @bet = bet
+        start
+      end
     else
       puts "Must place bet within High/low limits of the table"
       initial_bet
@@ -176,6 +181,7 @@ class Blackjack
 
   def winner
     puts "You win!"
+    puts `say winner winner chicken dinner`
     puts "#{@bet}$ has been added to your wallet!".green
     puts "You have #{@player.wallet.amount}$ remaining"
     @player.wallet.add(@bet)
@@ -184,8 +190,9 @@ class Blackjack
 
   def loser
     puts "You lose!"
+    puts `say wom wom`
     puts "#{@bet}$ has been removed from your wallet".red
-    puts "You have #{@player.wallet.anount}$ remaining"
+    puts "You have #{@player.wallet.amount}$ remaining"
     @player.wallet.subtract(@bet)
 
     replay
