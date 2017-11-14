@@ -1,10 +1,10 @@
 require 'pry'
+require 'colorize'
 require_relative 'player'
-require_relative 'wallet'
 require_relative 'high_low'
 require_relative 'spin_the_wheel'
+require_relative 'blackjack'
 require_relative 'ruby_slots'
-require 'colorize'
 
 class Casino
 

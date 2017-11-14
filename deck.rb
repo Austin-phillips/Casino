@@ -27,6 +27,16 @@ class Deck
      end
    end
  end
+# allows multi
+ def deal(num = 1)
+   if num > 1
+     hand = []
+     num.times { hand << @cards.pop }
+     hand
+   else
+     return @cards.pop
+   end
+ end
 
 
 end
