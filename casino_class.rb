@@ -11,11 +11,7 @@ class Casino
     attr_accessor :player, :options
 
     def initialize
-<<<<<<< HEAD
         @options = ["HighLow".light_blue, "Blackjack".yellow,"Spin The Wheel".light_red, "Slots".cyan, "Cashout".light_green]
-=======
-        @options = ["HighLow" .green, "Blackjack" .light_blue,"Spin The Wheel" .yellow, "Slots" .cyan, "Cashout" .red]
->>>>>>> Fix colors
 
         puts "===============================================".yellow
         puts "|      ~                                 ~    |".yellow
