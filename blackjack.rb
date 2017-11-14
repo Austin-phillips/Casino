@@ -21,9 +21,11 @@ class Blackjack
   end
 
   def greet
-    puts "=========================================".yellow
-    puts "|   welcome to blackjack #{@player.name.ljust(15)}|".yellow.on_blue
-    puts "=========================================".yellow
+    puts "******************************************".yellow
+    puts "*                                        *".yellow.on_blue
+    puts "*   Welcome to blackjack, #{@player.name.ljust(15)}*".yellow.on_blue
+    puts "*                                        *".yellow.on_blue
+    puts "******************************************".yellow
     init_deck
     min_max
   end
@@ -59,8 +61,8 @@ class Blackjack
     puts "How much would you like to bet?   Min: #{@min.to_s.light_blue}   Max: #{@max.to_s.red}"
     bet = gets.to_i
     if (@min..@max).include?(bet)
-      if @bet > @player.waller.amount
-        puts "Come back wen you have some real cash!"
+      if bet > @player.wallet.amount
+        puts "Come back wen you have some real cash!".red
         min_max
       else
         @bet = bet
@@ -75,19 +77,19 @@ class Blackjack
 
   def start
     deal_player unless @player_stand
-    deal_house if test_hand(@dealer_hand) <= 17
+    deal_house if test_hand(@house_hand) < 18
     #win condition
-    you_win if test_hand(@dealer_hand) > 18 &&  @player_stand
+    you_win if test_hand(@house_hand) > 18 &&  @player_stand
 
-    hit unless @player_stay
+    hit
   end
 
   def deal_player
     @player_hand << @d.deal(1)
     puts "#{@player.name} has.."
-    @player_hand.each { |card| puts "  #{card.name}" }
+    @player_hand.each { |card| puts "  #{card.name.yellow.on_blue}" }
     if test_hand(@player_hand) > 21
-      puts "You busted."
+      puts "You busted.".red
       loser
     end
   end
@@ -95,29 +97,17 @@ class Blackjack
   def deal_house
     @house_hand << @d.deal(1)
     puts "Dealer has.."
-    @house_hand.each { |card| puts "  #{card.name}" }
+    @house_hand.each { |card| puts "  #{card.name.blue.on_yellow}" }
     if test_hand(@house_hand) > 21
-      puts "The dealer Bust!"
+      puts "The dealer Bust!".green
       winner
     end
   end
 
-  def sum_card(who)
-    sum = []
-    who[0].each do |num|
-      if num.rank.include?("J") || num.rank.include?("Q") || num.rank.include?("K")
-        sum << 10
-      elsif num.rank.include?("A")
-        sum << 1
-      else
-        sum << num.rank.to_i
-      end
-    end
-    sum.reduce(&:+)
-  end
 
   def test_hand(hand)
-    return 0 if hand == nil
+    return 1 if hand === nil
+    return 0 if hand.length === 0
     ranks = []
     hand.each { |card| ranks << card.rank }
     ranks.map! do |rank|
@@ -183,8 +173,8 @@ class Blackjack
     puts "You win!"
     puts `say winner winner chicken dinner`
     puts "#{@bet}$ has been added to your wallet!".green
-    puts "You have #{@player.wallet.amount}$ remaining"
     @player.wallet.add(@bet)
+    puts "You have #{@player.wallet.amount}$ remaining"
     replay
   end
 
@@ -192,9 +182,8 @@ class Blackjack
     puts "You lose!"
     puts `say wom wom`
     puts "#{@bet}$ has been removed from your wallet".red
-    puts "You have #{@player.wallet.amount}$ remaining"
     @player.wallet.subtract(@bet)
-
+    puts "You have #{@player.wallet.amount}$ remaining"
     replay
   end
 
