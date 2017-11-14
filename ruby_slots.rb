@@ -34,8 +34,13 @@ class Slots
     puts " How much would you like to bet?"
     puts '@@@*************************************@@@'.colorize(:magenta)
     bet = gets.strip.to_f
-    @player.wallet.subtract(bet)
-    puts "You have #{@player.wallet.amount} remaining."
+    if bet > @player.wallet.amount
+        Styles.error("Not enough Money #{@player.name}", "*")
+      else
+      @player.wallet.subtract(bet)
+      puts "You have #{@player.wallet.amount} remaining."
+    end
+
 
     for x in @spin_result
       print "\t\t| #{x} |"; sleep(0.6)
