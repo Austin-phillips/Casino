@@ -9,8 +9,14 @@ class WheelFortune
     @player = player
     @casino = casino
     @numbers = [0,0,0,0,0,0,5,5,5,5,25,25,25,25,75,100,100000]
-    puts "Welcome to Spin The Wheel: #{player.name}!" .cyan
-    puts "Current balance: $#{@player.wallet.amount}"
+    puts "===============================================" .red
+    puts "|                                             |" .blue
+    puts "|                                             |" .yellow
+    puts "   Welcome to Spin The Wheel: #{player.name}!" .green
+    puts "|                                             |" .yellow
+    puts "|                                             |" .blue
+    puts "===============================================" .red
+    puts "Current balance: $#{@player.wallet.amount}" .green
     puts "$10 to Play" .green
     puts "1) Begin Spin the Wheel" .cyan
     puts "2) Exit back to casino" .red
@@ -43,7 +49,7 @@ class WheelFortune
   end
 
   def play_2
-    puts "Current balance: $#{@player.wallet.amount}"
+    puts "Current balance: $#{@player.wallet.amount}" .green
     puts "1) Spin again" .cyan
     puts "2) Exit back to Casino" .red
     choice_2 = gets.strip.to_i
