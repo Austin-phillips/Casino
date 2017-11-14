@@ -5,6 +5,7 @@ require_relative 'high_low'
 require_relative 'spin_the_wheel'
 require_relative 'blackjack'
 require_relative 'ruby_slots'
+require_relative 'modules'
 
 class Casino
 
@@ -38,11 +39,11 @@ class Casino
             when 3
             Slots.new(@player, self).slots_play
             when 4
-            puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}"
+            Styles.error("Thanks for playing with us, your balance is: #{@player.wallet.amount}".cyan, "~")
             puts `say Goodbye`
             exit
             else
-            puts "Invalid Choice"
+            Styles.error("Invalid Choice", "#")
             menu
         end
     end

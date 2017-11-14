@@ -31,7 +31,7 @@ class Blackjack
   end
 
   def min_max
-    @table = ["Min: 5  Max: 100", "Min: 50  Max: 1000", "Min: 1000  Max: 10000", "Back to Casino"]
+    @table = ["Min: 5  Max: 100", "Min: 50  Max: 1000", "Min: 1000  Max: 10000", "Back to Casino".cyan]
     puts "What table would you like to enter?"
     @table.each_with_index {|table, i| puts "[#{(i + 1).to_s.light_blue}] #{table}"}
     table = gets.to_i
@@ -51,8 +51,8 @@ class Blackjack
       when 4
         @casino.menu
       else
-        puts "Enter valid option"
-        start
+        Styles.error("Enter Valid input", "*")
+        min_max
     end
   end
 
@@ -62,14 +62,14 @@ class Blackjack
     bet = gets.to_i
     if (@min..@max).include?(bet)
       if bet > @player.wallet.amount
-        puts "Come back wen you have some real cash!".red
+        Styles.error("Not enough Money, #{@player.name}", "@")
         min_max
       else
         @bet = bet
         start
       end
     else
-      puts "Must place bet within High/low limits of the table"
+      puts "Must place bet within High/low limits of the table".cyan
       initial_bet
     end
   end
@@ -129,7 +129,7 @@ class Blackjack
 
   def you_win
     player = test_hand(@player_hand)
-    house = test_hand(@dealer_hand)
+    house = test_hand(@house_hand)
     puts "#{@player.name} total:  #{player}."
     puts "House total: #{house}."
     winner if player > house
@@ -148,7 +148,7 @@ class Blackjack
         @player_stand = true
         start
       else
-        puts "Enter valid input"
+        Styles.error("Enter Valid input", "*")
         hit
     end
   end
@@ -164,26 +164,26 @@ class Blackjack
     when 2
       @casino.menu
     else
-      puts "please enter valid input"
+      Styles.error("Enter Valid input", "*")
     end
     replay
   end
 
   def winner
-    puts "You win!"
+    Styles.win("You win!")
     puts `say winner winner chicken dinner`
     puts "#{@bet}$ has been added to your wallet!".green
     @player.wallet.add(@bet)
-    puts "You have #{@player.wallet.amount}$ remaining"
+    Styles.error("You have #{@player.wallet.amount}$ remaining", "~")
     replay
   end
 
   def loser
-    puts "You lose!"
+    Styles.lose("You Lose!")
     puts `say wom wom`
     puts "#{@bet}$ has been removed from your wallet".red
     @player.wallet.subtract(@bet)
-    puts "You have #{@player.wallet.amount}$ remaining"
+    Styles.error("You have #{@player.wallet.amount}$ remaining", "~")
     replay
   end
 
