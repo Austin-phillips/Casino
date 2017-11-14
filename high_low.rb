@@ -40,6 +40,7 @@ class HighLow
         lower(num1, bet, @player)
         else
         puts "I'm sorry, I couldn't hear you."
+        choice
     end      
   end 
 

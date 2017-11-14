@@ -38,7 +38,7 @@ class Casino
             when 3
             Slots.new(@player, self)
             when 4
-            puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}"
+            puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}" .cyan
             exit
             else
             puts "Invalid Choice"
