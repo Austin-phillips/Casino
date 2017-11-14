@@ -11,7 +11,7 @@ class Casino
     attr_accessor :player, :options
 
     def initialize
-        @options = ["HighLow", "Blackjack","Spin The Wheel", "Slots", "Exit"]
+        @options = ["HighLow", "Blackjack","Spin The Wheel", "Slots", "Cashout"]
 
         puts "===============================================".yellow
         puts "|      ~                                 ~    |".yellow
@@ -38,7 +38,7 @@ class Casino
             when 3
             Slots.new(@player, self)
             when 4
-            puts "Thanks for playing with us, please come again"
+            puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}"
             exit
             else
             puts "Invalid Choice"
