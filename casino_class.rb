@@ -11,7 +11,11 @@ class Casino
     attr_accessor :player, :options
 
     def initialize
+<<<<<<< HEAD
         @options = ["HighLow".light_blue, "Blackjack".yellow,"Spin The Wheel".light_red, "Slots".cyan, "Cashout".light_green]
+=======
+        @options = ["HighLow" .green, "Blackjack" .light_blue,"Spin The Wheel" .yellow, "Slots" .cyan, "Cashout" .red]
+>>>>>>> Fix colors
 
         puts "===============================================".yellow
         puts "|      ~                                 ~    |".yellow
@@ -25,7 +29,7 @@ class Casino
     end
 
     def menu
-        puts "Which game would you like to play?"
+        puts "Which game would you like to play?" .cyan
         @options.each_with_index {|opt, i| puts "#{i + 1}) #{opt}" }
         choice = gets.to_i - 1
         case choice
@@ -39,6 +43,7 @@ class Casino
             Slots.new(@player, self)
             when 4
             puts "Thanks for playing with us, your balance is: #{@player.wallet.amount}"
+            puts `say Goodbye`
             exit
             else
             puts "Invalid Choice"
