@@ -2,7 +2,6 @@ require_relative 'deck'
 
 
 class Blackjack
-  BUST = 21
 
   def initialize(player, casino)
     @casino = casino
