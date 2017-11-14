@@ -18,6 +18,7 @@ class Casino
         puts "|       Welcome to the DevCalibur Casino      |".light_blue
         puts "|      ~                                 ~    |".yellow
         puts "===============================================".yellow
+        puts `say Welcome to DevCalibur casino`
         @player = Player.new
 
         menu
