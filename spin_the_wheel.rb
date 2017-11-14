@@ -28,7 +28,7 @@ class WheelFortune
     @player.wallet.subtract(10)
     puts "press ENTER to spin" .cyan
     gets.strip
-    print "SPINNING..." .cyan; sleep(1.8)
+    print "SPINNING \u{1f300} \u{1f300} \u{1f300}\n" .cyan; sleep(1.8)
     winnings = @numbers.sample
     puts "You won $#{winnings}" .green
     @player.wallet.add(winnings)
