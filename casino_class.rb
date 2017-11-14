@@ -12,7 +12,14 @@ class Casino
 
     def initialize
         @options = ["HighLow", "Blackjack","Spin The Wheel", "Slots", "Exit"]
+
+        puts "===============================================".yellow
+        puts "|      ~                                 ~    |".yellow
+        puts "|       Welcome to the DevCalibur Casino      |".light_blue
+        puts "|      ~                                 ~    |".yellow
+        puts "===============================================".yellow
         @player = Player.new
+
         menu
     end
 

@@ -177,7 +177,7 @@ class Blackjack
   def winner
     puts "You win!"
     puts "#{@bet}$ has been added to your wallet!".green
-    puts "You have #{@player.wallet}$ remaining"
+    puts "You have #{@player.wallet.amount}$ remaining"
     @player.wallet.add(@bet)
     replay
   end
@@ -185,7 +185,7 @@ class Blackjack
   def loser
     puts "You lose!"
     puts "#{@bet}$ has been removed from your wallet".red
-    puts "You have #{@player.wallet}$ remaining"
+    puts "You have #{@player.wallet.anount}$ remaining"
     @player.wallet.subtract(@bet)
 
     replay
