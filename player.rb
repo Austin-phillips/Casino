@@ -24,6 +24,5 @@ class Player
       exit
     end
   end
-
+    
 end
-
